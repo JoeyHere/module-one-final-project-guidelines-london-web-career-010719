@@ -10,16 +10,18 @@ def welcome
     cat_animation
     t1.join
   system("clear")
+  puts Rainbow("🎵 --------------------------------------------🎵").red
+  brk
    system("artii 'Music Quiz' --font standard")
    brk
+   puts Rainbow("🎵 --------------------------------------------🎵").red
    brk
-   puts '“Without music, life would be a mistake”'
-   puts '                               ― Friedrich Nietzsche'
+   puts '   “Without music, life would be a mistake”'
+   puts '                        ― Friedrich Nietzsche'
    brk
    brk
-   puts $pastel.red.bold("🎵  Choose your Favourite Artists and Solve the Quiz!  🎵")
+   puts $pastel.red.bold("Choose your Favourite Artists and Solve the Quiz!")
    brk
-
 end
 
 def get_input
@@ -28,7 +30,7 @@ def get_input
    input.length == 0 ? " " : input
 end
 
-def password_prompt(message, mask='✮')
+def password_prompt(message, mask='✯')
    ask(message) { |q| q.echo = mask}
 end
 
@@ -59,20 +61,20 @@ def start_menu
    menu = TTY::Prompt.new
    brk
    selection = menu.select("") do |a|
-      a.choice '🎸   New Player'
-      a.choice '🎸   Existing Player'
+      a.choice '🎸  New Player'
+      a.choice '🎸  Existing Player'
       a.choice ' '
-      a.choice '❌   Exit game'
+      a.choice '❌  Exit game'
     end
 
     case selection
-      when '🎸   New Player'
+      when '🎸  New Player'
         big_brk
         create_account
-      when '🎸   Existing Player'
+      when '🎸  Existing Player'
         big_brk
         login_account
-      when '❌   Exit game'
+      when '❌  Exit game'
         exit
       when ' '
       system("artii 'B O O M !' | lolcat")
@@ -83,7 +85,7 @@ def start_menu
 end
 
 def create_account #for '#start_menu'
-   puts "✏️ ... Please enter your name."
+   puts "✏️   Please enter your name."
    brk
    user_name = get_input
 
@@ -92,7 +94,7 @@ def create_account #for '#start_menu'
       big_brk
       puts "Awesome, nice to meet you, #{user_name}!"
       brk
-      password = password_prompt('🔐 ... Please create a new password.')
+      password = password_prompt('🔐   Please create a new password.')
       user.update_password(password)
       big_brk
       puts "Password Set!"
@@ -110,7 +112,7 @@ def create_account #for '#start_menu'
 end
 
 def login_account #for '#start_menu'
-   puts "✏️ ... Please enter your name."
+   puts "✏️   Please enter your name."
    brk
    user_name = get_input
 

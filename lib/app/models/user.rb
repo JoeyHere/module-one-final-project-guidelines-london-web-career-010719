@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 
   def check_password
     brk
-    password = password_prompt('🔐 ... Please enter your password.')
+    password = password_prompt('🔐   Please enter your password.')
     brk
      if self.password_checker(password) == true
        brk
@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
  end
 
  def enter_artists
-   puts "✏️ ... Please enter one of your favourite artists."
+   puts "✏️   Please enter one of your favourite artists."
    while self.artists.length < 5
     brk
     puts "We only need #{5 - self.artists.length} more." if self.artists.length < 5 && self.artists.length > 0
