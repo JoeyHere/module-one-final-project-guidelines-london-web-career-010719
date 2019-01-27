@@ -10,11 +10,11 @@ def welcome
     cat_animation
     t1.join
   system("clear")
-  puts Rainbow("🎵 --------------------------------------------🎵").red
+  puts Rainbow("🎷---------------------------------------------🎷").red
   brk
    system("artii 'Music Quiz' --font standard")
    brk
-   puts Rainbow("🎵 --------------------------------------------🎵").red
+   puts Rainbow("🎷---------------------------------------------🎷").red
    brk
    puts '   “Without music, life would be a mistake”'
    puts '                        ― Friedrich Nietzsche'
@@ -25,7 +25,6 @@ def welcome
 end
 
 def get_input
-   print "▶︎ "
    input = STDIN.gets.strip
    input.length == 0 ? " " : input
 end
@@ -41,7 +40,7 @@ end
 def big_brk
   system("clear")
   system("artii 'Music Quiz' --font slant")
-  puts Rainbow("🎵 --------------------------------------------🎵").red
+  puts Rainbow("🎷---------------------------------------------🎷").red
   brk
   brk
 end
@@ -143,19 +142,19 @@ def main_menu(user)
    puts $pastel.blue.bold(" 🎧  MAIN MENU 🎧")
    brk
    selection = menu.select("", per_page: 10) do |a|
-      a.choice '🎼   Quiz'
-      a.choice '🎼   High Scores'
-      a.choice '🎼   Your Artists'
-      a.choice '🎼   Popular Artists'
-      a.choice '🎼   Your Suggested Artists'
-      a.choice '🎼   Change User'
+      a.choice '🎸   Quiz'
+      a.choice '🎸   High Scores'
+      a.choice '🎸   Your Artists'
+      a.choice '🎸   Popular Artists'
+      a.choice '🎸   Your Suggested Artists'
+      a.choice '🎸   Change User'
       a.choice ' '
       a.choice '❌   Exit Game'
     end
 
 
     case selection
-      when '🎼   Quiz'
+      when '🎸   Quiz'
          User.current.score = 0
          big_brk
          5.times do
@@ -163,19 +162,19 @@ def main_menu(user)
             big_brk
          end
          Question.new(user.artists.sample).ask_loop
-      when '🎼   High Scores'
+      when '🎸   High Scores'
          puts User.rank
          back_or_exit
-      when '🎼   Your Artists'
+      when '🎸   Your Artists'
          user.change_artists
-      when '🎼   Popular Artists'
+      when '🎸   Popular Artists'
          puts Artist.popular
          back_or_exit
 
-      when '🎼   Your Suggested Artists'
+      when '🎸   Your Suggested Artists'
         user.suggest_X_artists(10)
         back_or_exit
-      when '🎼   Change User'
+      when '🎸   Change User'
          User.current = nil
          start_menu
       when '❌   Exit Game'

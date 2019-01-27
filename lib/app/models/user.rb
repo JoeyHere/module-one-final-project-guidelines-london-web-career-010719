@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
        end
     else
       brk
-       puts "We can't find this " + Rainbow("#{artist_name}").red + " Try again."
+       puts "We can't find this Artist, try again."
        brk
        enter_artists
     end
@@ -83,7 +83,6 @@ class User < ActiveRecord::Base
 
  def change_artists
     prompt = TTY::Prompt.new
-    # puts "Do you want to change the list of your artists?"
     brk
     show_artists
     brk
